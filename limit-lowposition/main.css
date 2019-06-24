@@ -1,0 +1,27 @@
+body{
+  width:100vw;
+  height:100vh;
+  margin:0;
+}
+
+#long-wrapping-elm{
+  max-height:90vh;
+  overflow:scroll;
+}
+
+#long-elm{ 
+  width:100vw;
+  height:10vh;
+  background: repeating-linear-gradient(35deg, #96f7f2 0, #96f7f2 2vh,#ffffff 2vh, #ffffff 4vh);
+  transition:all 3s ease;
+}
+
+#long-elm:hover{ 
+  height:300vh;
+}
+
+#limit-low-elm{
+  width:100vw;
+  height:10vh;
+  background-color: #ff9eee;
+}
