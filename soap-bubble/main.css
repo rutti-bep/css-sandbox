@@ -3,38 +3,65 @@ body{
   width:100vw;
   background-color:gray;
   overflow:hidden;
+  margin:0;
+}
+
+.animation-bubble{
+  position: absolute;
+}
+
+.bubble-move-area{
+  position: relative;
+}
+
+.bubble-wrapper{
+  position: absolute;
+  right:0;
+  bottom: 0;
+}
+
+.bubble{
+  position: relative;
+  padding-bottom: 100%;
+  left: 50%;
+  margin-bottom: -50%;
 }
 
 .bubble-shadow{
+  position: absolute;
   width: 100%;
-  padding-bottom: 100%;
+  height:100%;
   border-radius: 100%;
   background: radial-gradient(#e8d1ff,#ffd1d1,#ffffc6,#d1ffe8,#ccccff,#000);
-  float:left;
 }
 .bubble-body{
   position: absolute;
   top: 5%;
   left: 15%;
   width:80%;
-  padding-bottom: 80%;
+  height: 80%;
   border-radius: 100%;
   background-color:#efffffa6;
 }
 
-.bubble{
-  position: absolute;
+.animation-bubble[data-index='1']{
+   top: 0vh;
+   left: 0vw;
+   height: 50vh;
+   width: 30vw;
 }
 
-.bubble[data-index='1']{
-  animation: bubbleX1 10s ease-in infinite;
-  width: 100px;
+.animation-bubble[data-index='1'] .bubble-wrapper{
+ /*animation: bubble1 10s ease-in infinite;*/
+  width: 10vh;
 }
-
-.bubble[data-index='1'] div{
-  animation: bubbleY 10s ease-in infinite;
+.animation-bubble[data-index='1'] .bubble-move-area{
+  animation: bubble 10s ease-in infinite;
 }
-
+/*
+.animation-bubble[data-index='1'] .bubble-move-area{
+  animation: bubbleX 10s ease-in infinite;
+}
 .bubble[data-index='2']{
   animation: bubble2 7s ease-in infinite;
   width: 28px;
@@ -49,27 +76,29 @@ body{
   animation: bubble2 20s ease-in infinite;
   width: 40px;
 }
-
-@keyframes bubbleY{
+@keyframes bubble1{
   0% {
-    transform: translateY(150vh);
+    transform:  scale(100%,100%);
   }
 
   100% {
-    transform: translateY(-50vh);
+    transform: scale(0%,0%);
   }
 }
+*/
 
-@keyframes bubbleX1{
+@keyframes bubble{
   0% {
-    transform: translateX(40vw);
+    width: 100%;
+    height: 100%;
   }
 
   100% {
-    transform: translateX(30vw);
+    width: 0%;
+    height: 0%;
   }
 }
-
+/*
 @keyframes bubble2{
   0% {
     transform: translateX(10vw) translateY(120vh);
@@ -89,3 +118,4 @@ body{
     transform: translateX(20vw) translateY(-20vh);
   }
 }
+*/
