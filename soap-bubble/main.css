@@ -7,16 +7,17 @@ body{
 
 .bubble-shadow{
   width: 100%;
-  height: 100%;
+  padding-bottom: 100%;
   border-radius: 100%;
   background: radial-gradient(#e8d1ff,#ffd1d1,#ffffc6,#d1ffe8,#ccccff,#000);
+  float:left;
 }
 .bubble-body{
-  position:relative;
-  top: -95%;
+  position: absolute;
+  top: 5%;
   left: 15%;
-  width: 80%;
-  height: 80%;
+  width:80%;
+  padding-bottom: 80%;
   border-radius: 100%;
   background-color:#efffffa6;
 }
@@ -26,36 +27,46 @@ body{
 }
 
 .bubble[data-index='1']{
-  animation: bubble1 10s ease-in infinite;
-  width: 35px;
-  height: 35px;
+  animation: bubbleX1 10s ease-in infinite;
+  width: 100px;
+}
+
+.bubble[data-index='1'] div{
+  animation: bubbleY 10s ease-in infinite;
 }
 
 .bubble[data-index='2']{
   animation: bubble2 7s ease-in infinite;
   width: 28px;
-  height: 28px;
 }
 
 .bubble[data-index='3']{
   animation: bubble3 15s ease-in infinite;
   width: 40px;
-  height: 40px;
 }
 
 .bubble[data-index='4']{
-  animation: bubble2 15s ease-in infinite;
+  animation: bubble2 20s ease-in infinite;
   width: 40px;
-  height: 40px;
 }
 
-@keyframes bubble1{
+@keyframes bubbleY{
   0% {
-    transform: translateX(40vw) translateY(120vh);
+    transform: translateY(150vh);
   }
 
   100% {
-    transform: translateX(30vw) translateY(-20vh);
+    transform: translateY(-50vh);
+  }
+}
+
+@keyframes bubbleX1{
+  0% {
+    transform: translateX(40vw);
+  }
+
+  100% {
+    transform: translateX(30vw);
   }
 }
 
