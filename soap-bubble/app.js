@@ -1,6 +1,6 @@
 window.onload = ()=>{
   const bubblesElm = document.getElementById("js-made-bubbles");
-  for(var i=0; i < 10;i++){
+  for(var i=0; i < 7;i++){
     bubblesElm.appendChild(newBubbleElm(i));
   }
 }
@@ -8,7 +8,7 @@ window.onload = ()=>{
 const limitSizeConfig ={
   "x":{
     "min":-10,
-    "max":10
+    "max":110
   },
   "y":{
     "min":-50,
@@ -17,17 +17,18 @@ const limitSizeConfig ={
 }
 
 
-newBubbleElm = (num)=>{
-  const posX = getRandomInt(100-limitSizeConfig["x"]["min"]+limitSizeConfig["x"]["max"]);
+const newBubbleElm = (num)=>{
+  const posX = getRandomInt(limitSizeConfig["x"]["max"]-limitSizeConfig["x"]["min"]);
   const moveX = getRandomInt(100-posX);
-  console.log(posX,moveX);
+  //console.log(posX,moveX);
   
-  const counter = 10+num;
-  const speed = getRandomInt(counter+10)+counter;
+  const counter = 5+num;
+  const speed = getRandomInt(counter)+counter*2;
   const sizeX = getRandomInt((counter+speed)/2)+counter;
   console.log(counter,sizeX+"vw",speed+"s");
   
   const bubbleShadowElm = document.createElement("div");
+  bubbleShadowElm.setAttribute("style",bubbleGradation(counter));
   bubbleShadowElm.setAttribute("class","bubble-shadow");
   
   const bubbleBodyElm = document.createElement("div");
@@ -57,8 +58,13 @@ newBubbleElm = (num)=>{
   animationBubbleElm.setAttribute("class","animation-bubble");
   animationBubbleElm.appendChild(bubbleMoveAreaElm)
 
-  console.log(animationBubbleElm);
+  //console.log(animationBubbleElm);
   return animationBubbleElm;
+}
+
+bubbleColors = ["#e8d1ff","#ffd1d1","#ffffc6","#d1ffe8","#ccccff"];
+const bubbleGradation = (counter)=>{
+   return "background: radial-gradient("+bubbleColors.concat(bubbleColors.slice(0,Math.floor(counter%5))).join(",")+");"; 
 }
 
 function getRandomInt(max) {
