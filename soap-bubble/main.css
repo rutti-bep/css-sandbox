@@ -51,12 +51,13 @@ body{
    width: 30vw;
 }
 
+.animation-bubble[data-index='1'] .bubble-move-area{
+  animation: bubble 10s ease-in infinite;
+}
+
 .animation-bubble[data-index='1'] .bubble-wrapper{
  /*animation: bubble1 10s ease-in infinite;*/
   width: 10vh;
-}
-.animation-bubble[data-index='1'] .bubble-move-area{
-  animation: bubble 10s ease-in infinite;
 }
 /*
 .animation-bubble[data-index='1'] .bubble-move-area{
